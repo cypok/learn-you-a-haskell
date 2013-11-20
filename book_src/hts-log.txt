@@ -1,0 +1,13 @@
+HTTrack3.47-27 launched on Wed, 20 Nov 2013 00:18:49 at +*.jpg +*.png +*.gif +*.bmp +*.css +*.js http://learnyouahaskell.com/chapters
+(httrack +*.jpg +*.png +*.gif +*.bmp +*.css +*.js -%i0 -N100 http://learnyouahaskell.com/chapters )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+00:20:48	Error: 	"Not Found" (404) at link learnyouahaskell.com/folds (from learnyouahaskell.com/for-a-few-monads-more)
+00:20:48	Error: 	"Not Found" (404) at link learnyouahaskell.com/reverse-polish-notation-calculator (from learnyouahaskell.com/for-a-few-monads-more)
+
+HTTrack Website Copier/3.47-27 mirror complete in 1 minutes 59 seconds : 159 links scanned, 156 files written (2381954 bytes overall) [2443886 bytes received at 20536 bytes/sec]
+(2 errors, 0 warnings, 0 messages)
