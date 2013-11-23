@@ -1,8 +1,8 @@
--   [Introduction](introduction.html)
--   [Table of contents](chapters.html)
--   [Types and Typeclasses](types-and-typeclasses.html)
 
-Starting Out {style="margin-left:-3px"}
+
+
+
+Starting Out 
 ============
 
 Ready, set, go!
@@ -1013,7 +1013,7 @@ programming. You take a starting set of solutions and then you apply
 transformations to those solutions and filter them until you get the
 right ones.
 
--   [Introduction](introduction.html)
--   [Table of contents](chapters.html)
--   [Types and Typeclasses](types-and-typeclasses.html)
+
+
+
 

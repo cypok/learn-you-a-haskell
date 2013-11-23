@@ -1,6 +1,6 @@
--   [A Fistful of Monads](a-fistful-of-monads.html)
--   [Table of contents](chapters.html)
--   [Zippers](zippers.html)
+
+
+
 
 For a Few Monads More
 =====================
@@ -2474,7 +2474,7 @@ monad and finally making an instance and doing something with it. I
 think that's quite fetching! By now, we should have a pretty good grasp
 on monads and what they're about.
 
--   [A Fistful of Monads](a-fistful-of-monads.html)
--   [Table of contents](chapters.html)
--   [Zippers](zippers.html)
+
+
+
 

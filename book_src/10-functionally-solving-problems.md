@@ -1,5 +1,5 @@
--   [Input and Output](input-and-output.html)
--   [Table of contents](chapters.html)
+
+
 -   [Functors, Applicative Functors and
     Monoids](functors-applicative-functors-and-monoids.html)
 
@@ -742,8 +742,8 @@ which you can then feed to what we just wrote. If you get stack
 overflows, try using `foldl'`{.fixed} instead of `foldl`{.fixed},
 because `foldl'`{.fixed} is strict.
 
--   [Input and Output](input-and-output.html)
--   [Table of contents](chapters.html)
+
+
 -   [Functors, Applicative Functors and
     Monoids](functors-applicative-functors-and-monoids.html)
 

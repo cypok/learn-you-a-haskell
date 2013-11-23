@@ -1,8 +1,8 @@
--   [Types and Typeclasses](types-and-typeclasses.html)
--   [Table of contents](chapters.html)
--   [Recursion](recursion.html)
 
-Syntax in Functions {style="margin-left:-3px"}
+
+
+
+Syntax in Functions 
 ===================
 
 Pattern matching
@@ -731,7 +731,7 @@ describeList xs = "The list is " ++ what xs
           what xs = "a longer list."
 ~~~~
 
--   [Types and Typeclasses](types-and-typeclasses.html)
--   [Table of contents](chapters.html)
--   [Recursion](recursion.html)
+
+
+
 

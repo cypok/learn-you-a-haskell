@@ -1,6 +1,6 @@
--   [Functionally Solving Problems](functionally-solving-problems.html)
--   [Table of contents](chapters.html)
--   [A Fistful of Monads](a-fistful-of-monads.html)
+
+
+
 
 Functors, Applicative Functors and Monoids
 ==========================================
@@ -2855,7 +2855,7 @@ ghci> F.foldMap (\x -> [x]) testTree
 What's cool is that all of these trick aren't limited to trees, they
 work on any instance of `Foldable`{.fixed}.
 
--   [Functionally Solving Problems](functionally-solving-problems.html)
--   [Table of contents](chapters.html)
--   [A Fistful of Monads](a-fistful-of-monads.html)
+
+
+
 
