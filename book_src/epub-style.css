@@ -1,0 +1,24 @@
+pre {
+    color:white;
+    background-color:black;
+    padding:5px;
+}
+.function {
+    background-color:#c00;
+    color:white;
+}
+.type {
+    background-color:#519179;
+    color:white;
+}
+.class {
+    background-color:#CC33CC;
+    color:white;
+}
+.law {
+    background-color:#99DDcc;
+    color:black;
+}
+.fixed {
+    background-color:#ddd;
+}
