@@ -1,6 +1,6 @@
--   [Syntax in Functions](syntax-in-functions.html)
--   [Table of contents](chapters.html)
--   [Higher Order Functions](higher-order-functions.html)
+
+
+
 
 Recursion {style="margin-left:-2px"}
 =========
@@ -373,7 +373,7 @@ you'll break apart the parameters of the function (for instance, lists
 are usually broken into a head and a tail via pattern matching) and on
 which part you'll use the recursive call.
 
--   [Syntax in Functions](syntax-in-functions.html)
--   [Table of contents](chapters.html)
--   [Higher Order Functions](higher-order-functions.html)
+
+
+
 

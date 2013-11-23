@@ -1,8 +1,8 @@
--   [Recursion](recursion.html)
--   [Table of contents](chapters.html)
--   [Modules](modules.html)
 
-Higher order functions {style="margin-left:-3px"}
+
+
+
+Higher order functions 
 ======================
 
 ![sun](lyah/sun.png)
@@ -1167,7 +1167,7 @@ oddSquareSum =
 It wouldn't win any code golf competition, but someone reading the
 function will probably find it easier to read than a composition chain.
 
--   [Recursion](recursion.html)
--   [Table of contents](chapters.html)
--   [Modules](modules.html)
+
+
+
 

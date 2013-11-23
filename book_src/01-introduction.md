@@ -1,5 +1,5 @@
--   -   [Table of contents](chapters.html)
--   [Starting Out](starting-out.html)
+
+
 
 Introduction
 ============
@@ -150,6 +150,6 @@ loading it up and messing around with them and then changing the .hs
 file, loading it up again and so on. This is also what we'll be doing
 here.
 
--   -   [Table of contents](chapters.html)
--   [Starting Out](starting-out.html)
+
+
 

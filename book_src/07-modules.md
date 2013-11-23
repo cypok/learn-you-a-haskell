@@ -1,5 +1,5 @@
--   [Higher Order Functions](higher-order-functions.html)
--   [Table of contents](chapters.html)
+
+
 -   [Making Our Own Types and
     Typeclasses](making-our-own-types-and-typeclasses.html)
 
@@ -1714,8 +1714,8 @@ and then see if you can put them in their own module. You'll be able to
 just import your module the next time you're writing a program that
 requires some of the same functionality.
 
--   [Higher Order Functions](higher-order-functions.html)
--   [Table of contents](chapters.html)
+
+
 -   [Making Our Own Types and
     Typeclasses](making-our-own-types-and-typeclasses.html)
 

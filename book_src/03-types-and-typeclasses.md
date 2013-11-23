@@ -1,6 +1,6 @@
--   [Starting Out](starting-out.html)
--   [Table of contents](chapters.html)
--   [Syntax in Functions](syntax-in-functions.html)
+
+
+
 
 Types and Typeclasses
 =====================
@@ -495,7 +495,7 @@ Notice that `fromIntegral`{.fixed} has several class constraints in its
 type signature. That's completely valid and as you can see, the class
 constraints are separated by commas inside the parentheses.
 
--   [Starting Out](starting-out.html)
--   [Table of contents](chapters.html)
--   [Syntax in Functions](syntax-in-functions.html)
+
+
+
 

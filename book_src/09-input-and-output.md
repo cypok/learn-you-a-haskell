@@ -1,7 +1,7 @@
 -   [Making Our Own Types and
     Typeclasses](making-our-own-types-and-typeclasses.html)
--   [Table of contents](chapters.html)
--   [Functionally Solving Problems](functionally-solving-problems.html)
+
+
 
 Input and Output
 ================
@@ -2933,6 +2933,6 @@ but the result that they yield when performed is of type
 
 -   [Making Our Own Types and
     Typeclasses](making-our-own-types-and-typeclasses.html)
--   [Table of contents](chapters.html)
--   [Functionally Solving Problems](functionally-solving-problems.html)
+
+
 

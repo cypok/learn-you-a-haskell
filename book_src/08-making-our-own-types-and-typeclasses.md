@@ -1,6 +1,6 @@
--   [Modules](modules.html)
--   [Table of contents](chapters.html)
--   [Input and Output](input-and-output.html)
+
+
+
 
 Making Our Own Types and Typeclasses
 ====================================
@@ -2370,7 +2370,7 @@ their own. Again, you don't really have to understand everything we did
 here to read on, but if you understand how kinds work, chances are that
 you have a very solid grasp of Haskell's type system.
 
--   [Modules](modules.html)
--   [Table of contents](chapters.html)
--   [Input and Output](input-and-output.html)
+
+
+
 

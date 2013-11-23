@@ -1,5 +1,5 @@
--   [For a Few Monads More](for-a-few-monads-more.html)
--   [Table of contents](chapters.html)
+
+
 -   
 
 Zippers
@@ -934,6 +934,6 @@ such as trying to focus on a file or folder that doesn't exist. As an
 exercise, you can equip our file system with functions that fail
 gracefully by using the `Maybe`{.fixed} monad.
 
--   [For a Few Monads More](for-a-few-monads-more.html)
--   [Table of contents](chapters.html)
+
+
 -   

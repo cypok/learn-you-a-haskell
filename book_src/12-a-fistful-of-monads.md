@@ -1,7 +1,7 @@
 -   [Functors, Applicative Functors and
     Monoids](functors-applicative-functors-and-monoids.html)
--   [Table of contents](chapters.html)
--   [For a Few Monads More](for-a-few-monads-more.html)
+
+
 
 A Fistful of Monads
 ===================
@@ -1675,6 +1675,6 @@ learn how to make our own.
 
 -   [Functors, Applicative Functors and
     Monoids](functors-applicative-functors-and-monoids.html)
--   [Table of contents](chapters.html)
--   [For a Few Monads More](for-a-few-monads-more.html)
+
+
 
