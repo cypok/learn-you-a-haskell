@@ -1,7 +1,7 @@
 
 
--   [Functors, Applicative Functors and
-    Monoids](functors-applicative-functors-and-monoids.html)
+
+
 
 Functionally Solving Problems
 =============================
@@ -744,6 +744,6 @@ because `foldl'`{.fixed} is strict.
 
 
 
--   [Functors, Applicative Functors and
-    Monoids](functors-applicative-functors-and-monoids.html)
+
+
 

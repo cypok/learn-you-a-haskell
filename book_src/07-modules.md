@@ -1,7 +1,7 @@
 
 
--   [Making Our Own Types and
-    Typeclasses](making-our-own-types-and-typeclasses.html)
+
+
 
 Modules
 =======
@@ -1716,6 +1716,6 @@ requires some of the same functionality.
 
 
 
--   [Making Our Own Types and
-    Typeclasses](making-our-own-types-and-typeclasses.html)
+
+
 

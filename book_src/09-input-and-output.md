@@ -1,5 +1,5 @@
--   [Making Our Own Types and
-    Typeclasses](making-our-own-types-and-typeclasses.html)
+
+
 
 
 
@@ -2931,8 +2931,8 @@ but the result that they yield when performed is of type
 `Either a b`{.fixed}, meaning it's either `Left a`{.fixed} or
 `Right b`{.fixed}.
 
--   [Making Our Own Types and
-    Typeclasses](making-our-own-types-and-typeclasses.html)
+
+
 
 
 
