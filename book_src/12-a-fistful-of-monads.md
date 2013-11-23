@@ -1,5 +1,5 @@
--   [Functors, Applicative Functors and
-    Monoids](functors-applicative-functors-and-monoids.html)
+
+
 
 
 
@@ -1673,8 +1673,8 @@ the `Maybe`{.fixed} monad and the list monad work. In the next chapter,
 we'll take a look at a whole bunch of other cool monads and we'll also
 learn how to make our own.
 
--   [Functors, Applicative Functors and
-    Monoids](functors-applicative-functors-and-monoids.html)
+
+
 
 
 
