@@ -92,10 +92,10 @@ When we were exploring the `Maybe`{.fixed} monad, we made a function
 `applyMaybe`{.fixed}, which took a Maybe a value and a function of type
 `a -> Maybe b`{.fixed} and fed that `Maybe a`{.fixed} value into the
 function, even though the function takes a normal `a`{.fixed} instead of
-a Maybe a. It did this by minding the context that comes with Maybe a
-values, which is that they are values with possible failure. But inside
-the `a -> Maybe b`{.fixed} function, we were able to treat that value as
-just a normal value, because applyMaybe (which later became
+a `Maybe  a`{.fixed}. It did this by minding the context that comes with
+Maybe a values, which is that they are values with possible failure. But
+inside the `a -> Maybe b`{.fixed} function, we were able to treat that
+value as just a normal value, because applyMaybe (which later became
 `>>=`{.fixed}) took care of checking if it was a `Nothing`{.fixed} or a
 Just value.
 
@@ -126,8 +126,8 @@ and we apply the function f to it. We get a pair of
 `(y,newLog)`{.fixed}, where `y`{.fixed} is the new result and
 `newLog`{.fixed} the new log. But if we returned that as the result, the
 old log value wouldn't be included in the result, so we return a pair of
-(y,log ++ newLog). We use `++`{.fixed} to append the new log to the old
-one.
+`(y,log ++  newLog)`{.fixed}. We use `++`{.fixed} to append the new log
+to the old one.
 
 Here's `applyLog`{.fixed} in action:
 
@@ -1305,8 +1305,9 @@ threeCoins = do
 `threeCoins`{.fixed} is now a stateful computations and after taking an
 initial random generator, it passes it to the first randomSt, which
 produces a number and a new generator, which gets passed to the next one
-and so on. We use return (a,b,c) to present `(a,b,c)`{.fixed} as the
-result without changing the most recent generator. Let's give this a go:
+and so on. We use `return  (a,b,c)`{.fixed} to present `(a,b,c)`{.fixed}
+as the result without changing the most recent generator. Let's give
+this a go:
 
 ~~~~ {.haskell:hs name="code"}
 ghci> runState threeCoins (mkStdGen 33)
@@ -1370,7 +1371,7 @@ applied to the value inside it, similar to how in the case of a
 case of an error, the `Left`{.fixed} value is kept, along with its
 contents, which describe the failure.
 
-The `Monad`{.fixed} instance for Either e makes an additional
+The `Monad`{.fixed} instance for `Either  e`{.fixed} makes an additional
 requirement, and that is that the type of the value contained in a
 `Left`{.fixed}, the one that's indexed by the `e`{.fixed} type
 parameter, has to be an instance of the `Error`{.fixed} type class. The
@@ -1747,14 +1748,14 @@ Perhaps the most interesting thing about `join`{.fixed} is that for
 every monad, feeding a monadic value to a function with \>\>= is the
 same thing as just mapping that function over the value and then using
 `join`{.fixed} to flatten the resulting nested monadic value! In other
-words, m \>\>= f is always the same thing as `join (fmap f m)`{.fixed}!
-It makes sense when you think about it. With `>>=`{.fixed}, we're always
-thinking about how to feed a monadic value to a function that takes a
-normal value but returns a monadic value. If we just map that function
-over the monadic value, we have a monadic value inside a monadic value.
-For instance, say we have Just 9 and the function \\x -\> Just (x+1). If
-we map this function over `Just 9`{.fixed}, we're left with
-`Just (Just 10)`{.fixed}.
+words, `m >>=  f`{.fixed} is always the same thing as
+`join (fmap f m)`{.fixed}! It makes sense when you think about it. With
+`>>=`{.fixed}, we're always thinking about how to feed a monadic value
+to a function that takes a normal value but returns a monadic value. If
+we just map that function over the monadic value, we have a monadic
+value inside a monadic value. For instance, say we have Just 9 and the
+function `\x -> Just  (x+1)`{.fixed}. If we map this function over
+`Just 9`{.fixed}, we're left with `Just (Just 10)`{.fixed}.
 
 The fact that `m >>= f`{.fixed} always equals `join (fmap f m)`{.fixed}
 is very useful if we're making our own `Monad`{.fixed} instance for some
@@ -1777,13 +1778,13 @@ Now, what if the `Bool`{.fixed} value that it returned was actually a
 monadic value? Whoa! That is, what if it came with a context? Could that
 work? For instance, what if every True or a `False`{.fixed} value that
 the predicate produced also had an accompanying monoid value, like
-["Accepted the number 5"] or ["3 is too small"]? That sounds like it
-could work. If that were the case, we'd expect the resulting list to
-also come with a log of all the log values that were produced along the
-way. So if the `Bool`{.fixed} that the predicate returned came with a
-context, we'd expect the final resulting list to have some context
-attached as well, otherwise the context that each Bool came with would
-be lost.
+["Accepted the number 5"] or `["3 is too  small"]`{.fixed}? That sounds
+like it could work. If that were the case, we'd expect the resulting
+list to also come with a log of all the log values that were produced
+along the way. So if the `Bool`{.fixed} that the predicate returned came
+with a context, we'd expect the final resulting list to have some
+context attached as well, otherwise the context that each Bool came with
+would be lost.
 
 The `filterM`{.fixed} function from `Control.Monad`{.fixed} does just
 what we want! Its type is this:
@@ -2063,11 +2064,11 @@ The first three cases are like the old ones, except the new stack gets
 wrapped in a `Just`{.fixed} (we used return here to do this, but we
 could have written `Just`{.fixed} just as well). In the last case, we do
 `readMaybe numberString`{.fixed} and then we map (:xs) over it. So if
-the stack `xs`{.fixed} is `[1.0,2.0]`{.fixed} and readMaybe numberString
-results in a `Just 3.0`{.fixed}, the result is
-`Just [3.0,1.0,2.0]`{.fixed}. If `readMaybe numberString`{.fixed}
-results in a Nothing then the result is `Nothing`{.fixed}. Let's try out
-the folding function by itself:
+the stack `xs`{.fixed} is `[1.0,2.0]`{.fixed} and
+`readMaybe  numberString`{.fixed} results in a `Just 3.0`{.fixed}, the
+result is `Just [3.0,1.0,2.0]`{.fixed}. If
+`readMaybe numberString`{.fixed} results in a Nothing then the result is
+`Nothing`{.fixed}. Let's try out the folding function by itself:
 
 ~~~~ {.haskell:hs name="code"}
 ghci> foldingFunction [3,2] "*"
@@ -2414,8 +2415,8 @@ made with return, so it wouldn't affect the context. The reasoning for
 third law states that `f <=< (g <=< h)`{.fixed} should be the same as
 `(f <=< g) <=< h`{.fixed}. This one holds as well, because it holds for
 the list monad which forms the basis of the probability monad and
-because multiplication is associative. 1%2 \* (1%3 \* 1%5) is equal to
-`(1%2 * 1%3) * 1%5`{.fixed}.
+because multiplication is associative. `1%2 * (1%3  * 1%5)`{.fixed} is
+equal to `(1%2 * 1%3) * 1%5`{.fixed}.
 
 Now that we have a monad, what can we do with it? Well, it can help us
 do calculations with probabilities. We can treat probabilistic events as

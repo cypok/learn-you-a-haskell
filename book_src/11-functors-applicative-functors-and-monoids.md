@@ -1642,7 +1642,8 @@ other type an instance in the second way.
 
 The *newtype* keyword in Haskell is made exactly for these cases when we
 want to just take one type and wrap it in something to present it as
-another type. In the actual libraries, ZipList a is defined like this:
+another type. In the actual libraries, `ZipList  a`{.fixed} is defined
+like this:
 
 ~~~~ {.haskell:hs name="code"}
 newtype ZipList a = ZipList { getZipList :: [a] }
@@ -1755,11 +1756,11 @@ instance of `Functor`{.fixed} in such a way that when we `fmap`{.fixed}
 a function over a tuple, it gets applied to the first component of the
 tuple? That way, doing `fmap (+3) (1,1)`{.fixed} would result in
 `(4,1)`{.fixed}. It turns out that writing the instance for that is kind
-of hard. With Maybe, we just say instance Functor Maybe where because
-only type constructors that take exactly one parameter can be made an
-instance of `Functor`{.fixed}. But it seems like there's no way to do
-something like that with `(a,b)`{.fixed} so that the type parameter
-`a`{.fixed} ends up being the one that changes when we use
+of hard. With Maybe, we just say `instance Functor  Maybe where`{.fixed}
+because only type constructors that take exactly one parameter can be
+made an instance of `Functor`{.fixed}. But it seems like there's no way
+to do something like that with `(a,b)`{.fixed} so that the type
+parameter `a`{.fixed} ends up being the one that changes when we use
 `fmap`{.fixed}. To get around this, we can *newtype* our tuple in such a
 way that the second type parameter represents the type of the first
 component in the tuple:
@@ -2013,12 +2014,12 @@ see that our type is some kind of functor, we make it an instance of
 Now consider the following: `*`{.fixed} is a function that takes two
 numbers and multiplies them. If we multiply some number with a 1, the
 result is always equal to that number. It doesn't matter if we do
-`1 * x`{.fixed} or x \* 1, the result is always `x`{.fixed}. Similarly,
-++ is also a function which takes two things and returns a third. Only
-instead of multiplying numbers, it takes two lists and concatenates
-them. And much like `*`{.fixed}, it also has a certain value which
-doesn't change the other one when used with `++`{.fixed}. That value is
-the empty list: `[]`{.fixed}.
+`1 * x`{.fixed} or `x *  1`{.fixed}, the result is always `x`{.fixed}.
+Similarly, ++ is also a function which takes two things and returns a
+third. Only instead of multiplying numbers, it takes two lists and
+concatenates them. And much like `*`{.fixed}, it also has a certain
+value which doesn't change the other one when used with `++`{.fixed}.
+That value is the empty list: `[]`{.fixed}.
 
 ~~~~ {.haskell:hs name="code"}
 ghci> 4 * 1
@@ -2044,8 +2045,8 @@ not be as obvious as our previous observations: when we have three or
 more values and we want to use the binary function to reduce them to a
 single result, the order in which we apply the binary function to the
 values doesn't matter. It doesn't matter if we do `(3 * 4) * 5`{.fixed}
-or 3 \* (4 \* 5). Either way, the result is `60`{.fixed}. The same goes
-for `++`{.fixed}:
+or `3  * (4 * 5)`{.fixed}. Either way, the result is `60`{.fixed}. The
+same goes for `++`{.fixed}:
 
 ~~~~ {.haskell:hs name="code"}
 ghci> (3 * 2) * (8 * 5)
@@ -2136,7 +2137,8 @@ we have to make sure they follow these laws:
 
 -   `` mempty `mappend` x = x ``{.label .law}
 -   `` x `mappend` mempty = x ``{.label .law}
--   (x \`mappend\` y) \`mappend\` z = x \`mappend\` (y \`mappend\` z)
+-   `` (x `mappend` y) `mappend` z = x `mappend` (y      `mappend` z) ``{.label
+    .law}
 
 The first two state that `mempty`{.fixed} has to act as the identity
 with respect to `mappend`{.fixed} and the third says that
@@ -2831,8 +2833,8 @@ ghci> getAny $ F.foldMap (\x -> Any $ x > 15) testTree
 False
 ~~~~
 
-All of the nodes in our tree would hold the value Any False after having
-the function in the lambda applied to them. But to end up
+All of the nodes in our tree would hold the value `Any  False`{.fixed}
+after having the function in the lambda applied to them. But to end up
 `True`{.fixed}, `mappend`{.fixed} for `Any`{.fixed} has to have at least
 one `True`{.fixed} value as a parameter. That's why the final result is
 `False`{.fixed}, which makes sense because no value in our tree is

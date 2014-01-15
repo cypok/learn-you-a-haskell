@@ -25,8 +25,8 @@ functions over various data types. We saw that for this purpose, the
 question: when we have a function of type `a -> b`{.fixed} and some data
 type `f a`{.fixed}, how do we map that function over the data type to
 end up with `f b`{.fixed}? We saw how to map something over a
-`Maybe a`{.fixed}, a list `[a]`{.fixed}, an IO a etc. We even saw how to
-map a function `a -> b`{.fixed} over other functions of type
+`Maybe a`{.fixed}, a list `[a]`{.fixed}, an `IO  a`{.fixed} etc. We even
+saw how to map a function `a -> b`{.fixed} over other functions of type
 `r -> a`{.fixed} to get functions of type `r -> b`{.fixed}. To answer
 this question of how to map a function over some data type, all we had
 to do was look at the type of `fmap`{.fixed}:
@@ -80,15 +80,15 @@ ghci> (-) <$> [3,4] <*> [1,2,3]
 Ah, cool, so now that we treat them as applicative values, Maybe a
 values represent computations that might have failed, `[a]`{.fixed}
 values represent computations that have several results
-(non-deterministic computations), IO a values represent values that have
-side-effects, etc.
+(non-deterministic computations), `IO  a`{.fixed} values represent
+values that have side-effects, etc.
 
 Monads are a natural extension of applicative functors and with them
-we're concerned with this: if you have a value with a context, m a, how
-do you apply to it a function that takes a normal a and returns a value
-with a context? That is, how do you apply a function of type
-`a -> m b`{.fixed} to a value of type `m a`{.fixed}? So essentially, we
-will want this function:
+we're concerned with this: if you have a value with a context,
+`m  a`{.fixed}, how do you apply to it a function that takes a normal a
+and returns a value with a context? That is, how do you apply a function
+of type `a -> m b`{.fixed} to a value of type `m a`{.fixed}? So
+essentially, we will want this function:
 
 ~~~~ {.haskell:hs name="code"}
 (>>=) :: (Monad m) => m a -> (a -> m b) -> m b
@@ -554,7 +554,7 @@ seem to have lost the ability to repeatedly land birds on the pole. We
 can't do `landLeft 1 (landRight 1 (0,0))`{.fixed} anymore because when
 we apply `landRight 1`{.fixed} to (0,0), we don't get a `Pole`{.fixed},
 but a `Maybe Pole`{.fixed}. `landLeft 1`{.fixed} takes a `Pole`{.fixed}
-and not a Maybe Pole.
+and not a `Maybe Pole`{.fixed}.
 
 We need a way of taking a `Maybe Pole`{.fixed} and feeding it to a
 function that takes a `Pole`{.fixed} and returns a Maybe Pole. Luckily,
@@ -593,7 +593,7 @@ At the beginning, we used `return`{.fixed} to take a pole and wrap it in
 a `Just`{.fixed}. We could have just applied landRight 2 to
 `(0,0)`{.fixed}, it would have been the same, but this way we can be
 more consistent by using `>>=`{.fixed} for every function.
-`Just (0,0)`{.fixed} gets fed to landRight 2, resulting in
+`Just (0,0)`{.fixed} gets fed to `landRight  2`{.fixed}, resulting in
 `Just (0,2)`{.fixed}. This, in turn, gets fed to `landLeft 2`{.fixed},
 resulting in Just (2,2), and so on.
 
@@ -620,15 +620,15 @@ Nothing
 Awesome. The final result represents failure, which is what we expected.
 Let's see how this result was obtained. First, `return`{.fixed} puts
 `(0,0)`{.fixed} into a default context, making it a Just (0,0). Then,
-Just (0,0) \>\>= landLeft 1 happens. Since the `Just (0,0)`{.fixed} is a
-Just value, `landLeft 1`{.fixed} gets applied to `(0,0)`{.fixed},
-resulting in a Just (1,0), because the birds are still relatively
-balanced. Next, Just (1,0) \>\>= landRight 4 takes place and the result
-is `Just (1,4)`{.fixed} as the balance of the birds is still intact,
-although just barely. `Just (1,4)`{.fixed} gets fed to
-`landLeft (-1)`{.fixed}. This means that landLeft (-1) (1,4) takes
-place. Now because of how landLeft works, this results in a Nothing,
-because the resulting pole is off balance. Now that we have a
+`Just (0,0) >>=   landLeft 1`{.fixed} happens. Since the
+`Just (0,0)`{.fixed} is a Just value, `landLeft 1`{.fixed} gets applied
+to `(0,0)`{.fixed}, resulting in a `Just   (1,0)`{.fixed}, because the
+birds are still relatively balanced. Next, Just (1,0) \>\>= landRight 4
+takes place and the result is `Just (1,4)`{.fixed} as the balance of the
+birds is still intact, although just barely. `Just (1,4)`{.fixed} gets
+fed to `landLeft (-1)`{.fixed}. This means that landLeft (-1) (1,4)
+takes place. Now because of how landLeft works, this results in a
+Nothing, because the resulting pole is off balance. Now that we have a
 `Nothing`{.fixed}, it gets fed to landRight (-2), but because it's a
 Nothing, the result is automatically Nothing, as we have nothing to
 apply landRight (-2) to.
@@ -692,8 +692,8 @@ ghci> Just 3 >> Nothing
 Nothing
 ~~~~
 
-If you replace `>>`{.fixed} with \>\>= \\\_ -\>, it's easy to see why it
-acts like it does.
+If you replace `>>`{.fixed} with `>>=  \_ ->`{.fixed}, it's easy to see
+why it acts like it does.
 
 We can replace our `banana`{.fixed} function in the chain with a
 `>>`{.fixed} and then a `Nothing`{.fixed}:
@@ -932,9 +932,9 @@ routine =
                 Just second -> landLeft 1 second
 ~~~~
 
-See how in the case of success, the tuple inside Just (0,0) becomes
-`start`{.fixed}, the result of `landLeft 2 start`{.fixed} becomes
-`first`{.fixed}, etc.
+See how in the case of success, the tuple inside `Just  (0,0)`{.fixed}
+becomes `start`{.fixed}, the result of `landLeft 2 start`{.fixed}
+becomes `first`{.fixed}, etc.
 
 If we want to throw the Pierre a banana peel in `do`{.fixed} notation,
 we can do the following:
@@ -1570,13 +1570,13 @@ Formally written:
     `m >>= (\x -> f x >>= g)`{.label .law}
 
 Hmmm, now what's going on here? We have one monadic value, m and two
-monadic functions `f`{.fixed} and `g`{.fixed}. When we're doing (m \>\>=
-f) \>\>= g, we're feeding `m`{.fixed} to `f`{.fixed}, which results in a
-monadic value. Then, we feed that monadic value to `g`{.fixed}. In the
-expression `m >>= (\x -> f x >>= g)`{.fixed}, we take a monadic value
-and we feed it to a function that feeds the result of f x to
-`g`{.fixed}. It's not easy to see how those two are equal, so let's take
-a look at an example that makes this equality a bit clearer.
+monadic functions `f`{.fixed} and `g`{.fixed}. When we're doing
+`(m  >>= f) >>= g`{.fixed}, we're feeding `m`{.fixed} to `f`{.fixed},
+which results in a monadic value. Then, we feed that monadic value to
+`g`{.fixed}. In the expression `m >>= (\x -> f x >>= g)`{.fixed}, we
+take a monadic value and we feed it to a function that feeds the result
+of f x to `g`{.fixed}. It's not easy to see how those two are equal, so
+let's take a look at an example that makes this equality a bit clearer.
 
 Remember when we had our tightrope walker Pierre walk a rope while birds
 landed on his balancing pole? To simulate birds landing on his balancing
@@ -1665,8 +1665,8 @@ no different from `f`{.label .law}.
 
 This is very similar to how if `f`{.fixed} is a normal function,
 `(f . g) . h`{.fixed} is the same as `f . (g . h)`{.fixed},
-`f . id`{.fixed} is always the same as `f`{.fixed} and id . f is also
-just `f`{.fixed}.
+`f . id`{.fixed} is always the same as `f`{.fixed} and `id .  f`{.fixed}
+is also just `f`{.fixed}.
 
 In this chapter, we took a look at the basics of monads and learned how
 the `Maybe`{.fixed} monad and the list monad work. In the next chapter,
