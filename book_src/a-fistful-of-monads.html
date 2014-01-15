@@ -58,8 +58,8 @@ type class was introduced and it had us asking the question: when we have a
 function of type <code class="fixed">a -&gt; b</code> and some data type 
 <code class="fixed">f a</code>, how do we map that function over the data type 
 to end up with <code class="fixed">f b</code>? We saw how to map something over 
-a <code class="fixed">Maybe a</code>, a list <code class="fixed">[a]</code>, an <span class="fixed">IO 
-a</span> etc. We even saw how to map a function <code class="fixed">a -&gt; b</code> 
+a <code class="fixed">Maybe a</code>, a list <code class="fixed">[a]</code>, an <code class="fixed">IO 
+a</code> etc. We even saw how to map a function <code class="fixed">a -&gt; b</code> 
 over other functions of type <code class="fixed">r -&gt; a</code> to get
 functions of type <code class="fixed">r -&gt; b</code>. To answer this question 
 of how to map a function over some data type, all we had to do was look at the type
@@ -130,14 +130,14 @@ ghci&gt; (-) &lt;$&gt; [3,4] &lt;*&gt; [1,2,3]
 Ah, cool, so now that we treat them as applicative values, <span 
 class="fixed">Maybe a</span> values represent computations that might have 
 failed, <code class="fixed">[a]</code> values represent computations that have 
-several results (non-deterministic computations), <span class="fixed">IO 
-a</span> values represent values that have side-effects, etc.
+several results (non-deterministic computations), <code class="fixed">IO 
+a</code> values represent values that have side-effects, etc.
 </p>
 
 <p>
 Monads are a natural extension of applicative functors and with them we're 
-concerned with this: if you have a value with a context, <span class="fixed">m 
-a</span>, how do you apply to it a function that takes a normal <span 
+concerned with this: if you have a value with a context, <code class="fixed">m 
+a</code>, how do you apply to it a function that takes a normal <span 
 class="fixed">a</span> and returns a value with a context? That is, how do you 
 apply a function of type <code class="fixed">a -&gt; m b</code> to a value of 
 type <code class="fixed">m a</code>? So essentially, we will want this function:
@@ -730,8 +730,8 @@ can't do <code class="fixed">landLeft 1 (landRight 1 (0,0))</code> anymore
 because when we apply <code class="fixed">landRight 1</code> to <span 
 class="fixed">(0,0)</span>, we don't get a <code class="fixed">Pole</code>, but 
 a <code class="fixed">Maybe Pole</code>. <code class="fixed">landLeft 1</code> 
-takes a <code class="fixed">Pole</code> and not a <span class="fixed">Maybe
-Pole</span>.
+takes a <code class="fixed">Pole</code> and not a <code class="fixed">Maybe
+Pole</code>.
 </p>
 
 <p>
@@ -784,8 +784,8 @@ wrap it in a <code class="fixed">Just</code>. We could have just applied <span
 class="fixed">landRight 2</span> to <code class="fixed">(0,0)</code>, it would 
 have been the same, but this way we can be more consistent by using <code class="fixed">&gt;&gt;=</code> 
 for every function.
-<code class="fixed">Just (0,0)</code> gets fed to <span class="fixed">landRight 
-2</span>, resulting in <code class="fixed">Just (0,2)</code>. This, in turn, 
+<code class="fixed">Just (0,0)</code> gets fed to <code class="fixed">landRight 
+2</code>, resulting in <code class="fixed">Just (0,2)</code>. This, in turn, 
 gets fed to <code class="fixed">landLeft 2</code>, resulting in <span 
 class="fixed">Just (2,2)</span>, and so on.
 </p>
@@ -817,11 +817,11 @@ Nothing
 Awesome. The final result represents failure, which is what we expected. Let's 
 see how this result was obtained. First, <code class="fixed">return</code> puts 
  <code class="fixed">(0,0)</code> into a default context, making it a <span 
- class="fixed">Just (0,0)</span>. Then, <span class="fixed">Just (0,0) &gt;&gt;= 
- landLeft 1</span> happens. Since the <code class="fixed">Just (0,0)</code> is a <span 
+ class="fixed">Just (0,0)</span>. Then, <code class="fixed">Just (0,0) &gt;&gt;= 
+ landLeft 1</code> happens. Since the <code class="fixed">Just (0,0)</code> is a <span 
  class="fixed">Just</span> value, <code class="fixed">landLeft 1</code> gets applied 
- to <code class="fixed">(0,0)</code>, resulting in a <span class="fixed">Just 
- (1,0)</span>, because the birds are still relatively balanced. Next, <span 
+ to <code class="fixed">(0,0)</code>, resulting in a <code class="fixed">Just 
+ (1,0)</code>, because the birds are still relatively balanced. Next, <span 
  class="fixed">Just (1,0) &gt;&gt;= landRight 4</span> takes place and the 
  result is <code class="fixed">Just (1,4)</code> as the balance of the birds is 
  still intact, although just barely. <code class="fixed">Just (1,4)</code> gets 
@@ -907,8 +907,8 @@ Nothing
 </pre>
 
 <p>
-If you replace <code class="fixed">&gt;&gt;</code> with <span class="fixed">&gt;&gt;= 
-\_ -&gt;</span>, it's easy to see why it acts like it does.
+If you replace <code class="fixed">&gt;&gt;</code> with <code class="fixed">&gt;&gt;= 
+\_ -&gt;</code>, it's easy to see why it acts like it does.
 </p>
 
 <p>
@@ -1207,8 +1207,8 @@ routine =
 </pre>
 
 <p>
-See how in the case of success, the tuple inside <span class="fixed">Just 
-(0,0)</span> becomes <code class="fixed">start</code>, the result of
+See how in the case of success, the tuple inside <code class="fixed">Just 
+(0,0)</code> becomes <code class="fixed">start</code>, the result of
 <code class="fixed">landLeft 2 start</code> becomes <code class="fixed">first</code>, etc.
 </p>
 
@@ -2001,8 +2001,8 @@ they're nested. Formally written:
 <p>
 Hmmm, now what's going on here? We have one monadic value, <span 
 class="fixed">m</span> and two monadic functions <code class="fixed">f</code> 
-and <code class="fixed">g</code>. When we're doing <span class="fixed">(m 
-&gt;&gt;= f) &gt;&gt;= g</span>, we're feeding <code class="fixed">m</code> to <code class="fixed">f</code>, which results in a monadic value. Then, we feed that monadic value to <code class="fixed">g</code>. 
+and <code class="fixed">g</code>. When we're doing <code class="fixed">(m 
+&gt;&gt;= f) &gt;&gt;= g</code>, we're feeding <code class="fixed">m</code> to <code class="fixed">f</code>, which results in a monadic value. Then, we feed that monadic value to <code class="fixed">g</code>. 
 In the expression <code class="fixed">m &gt;&gt;= (\x -&gt; f x &gt;&gt;= g)</code>, we take a 
 monadic value and we feed it to a function that feeds the result of <span 
 class="fixed">f x</span> to <code class="fixed">g</code>. It's not easy to see 
@@ -2121,8 +2121,8 @@ says that <code class="label law">return &lt;=&lt; f</code> is also no different
 <p>
 This is very similar to how if <code class="fixed">f</code> 
 is a normal function, <code class="fixed">(f . g) . h</code> is the same as <code class="fixed">f . (g . h)</code>, <code class="fixed">f . id</code>
-is always the same as <code class="fixed">f</code> and <span class="fixed">id . 
-f</span>
+is always the same as <code class="fixed">f</code> and <code class="fixed">id . 
+f</code>
 is also just <code class="fixed">f</code>.
 </p>
 

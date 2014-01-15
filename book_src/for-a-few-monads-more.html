@@ -144,8 +144,8 @@ When we were exploring the <code class="fixed">Maybe</code> monad, we made a
 function <code class="fixed">applyMaybe</code>, which took a <span 
 class="fixed">Maybe a</span> value and a function of type <code class="fixed">a -&gt; Maybe b</code> 
 and fed that <code class="fixed">Maybe a</code> value into the function, even 
-though the function takes a normal <code class="fixed">a</code> instead of a <span class="fixed">Maybe 
-a</span>. It did this by minding the context that comes with <span 
+though the function takes a normal <code class="fixed">a</code> instead of a <code class="fixed">Maybe 
+a</code>. It did this by minding the context that comes with <span 
 class="fixed">Maybe a</span> values, which is that they are values with possible 
 failure. But inside the <code class="fixed">a -&gt; Maybe b</code> function, we 
 were able to treat that value as just a normal value, because <span 
@@ -184,8 +184,8 @@ which is <code class="fixed">x</code> and we apply the function <span
 class="fixed">f</span> to it. We get a pair of <code class="fixed">(y,newLog)</code>, where
 <code class="fixed">y</code> is the new result and <code class="fixed">newLog</code> 
 the new log. But if we returned that as the result, the old log value wouldn't 
-be included in the result, so we return a pair of <span class="fixed">(y,log ++ 
-newLog)</span>. We use <code class="fixed">++</code> to append the new log to 
+be included in the result, so we return a pair of <code class="fixed">(y,log ++ 
+newLog)</code>. We use <code class="fixed">++</code> to append the new log to 
 the old one.
 </p>
 
@@ -1633,8 +1633,8 @@ threeCoins = do
 <code class="fixed">threeCoins</code> is now a stateful computations and after 
 taking an initial random generator, it passes it to the first <span 
 class="fixed">randomSt</span>, which produces a number and a new generator, 
-which gets passed to the next one and so on. We use <span class="fixed">return 
-(a,b,c)</span> to present <code class="fixed">(a,b,c)</code> as the result 
+which gets passed to the next one and so on. We use <code class="fixed">return 
+(a,b,c)</code> to present <code class="fixed">(a,b,c)</code> as the result 
 without changing the most recent generator. Let's give this a go:
 </p>
 
@@ -1718,8 +1718,8 @@ kept, along with its contents, which describe the failure.
 </p>
 
 <p>
-The <code class="fixed">Monad</code> instance for <span class="fixed">Either 
-e</span> makes an
+The <code class="fixed">Monad</code> instance for <code class="fixed">Either 
+e</code> makes an
 additional requirement, and that is that the type of the value contained in a 
 <code class="fixed">Left</code>, the one that's indexed by the <code class="fixed">e</code> 
 type parameter, has to be an instance of the <code class="fixed">Error</code> 
@@ -2195,14 +2195,14 @@ Perhaps the most interesting thing about <code class="fixed">join</code> is
 that for every monad, feeding a monadic value to a function with <span 
 class="fixed">&gt;&gt;=</span> is the same thing as just mapping that function 
 over the value and then using <code class="fixed">join</code> to flatten the 
-resulting nested monadic value! In other words, <span class="fixed">m &gt;&gt;= 
-f</span> is always the same thing as <code class="fixed">join (fmap f m)</code>! 
+resulting nested monadic value! In other words, <code class="fixed">m &gt;&gt;= 
+f</code> is always the same thing as <code class="fixed">join (fmap f m)</code>! 
 It makes sense when you think about it. With <code class="fixed">&gt;&gt;=</code>, we're always thinking about
 how to feed a monadic value to a function that takes a normal value but returns 
 a monadic value. If we just map that function over the monadic value, we have a 
 monadic value inside a monadic value. For instance, say we have <span 
-class="fixed">Just 9</span> and the function <span class="fixed">\x -&gt; Just 
-(x+1)</span>. If we map this function over <code class="fixed">Just 9</code>, 
+class="fixed">Just 9</span> and the function <code class="fixed">\x -&gt; Just 
+(x+1)</code>. If we map this function over <code class="fixed">Just 9</code>, 
 we're left with <code class="fixed">Just (Just 10)</code>.
 </p>
 
@@ -2234,8 +2234,8 @@ was actually a monadic value? Whoa! That is, what if it came with a context?
 Could that work? For instance, what if every <span 
 class="fixed">True</span> or a <code class="fixed">False</code> value that the 
 predicate produced also had an accompanying monoid value, like <span 
-class="fixed">["Accepted the number 5"]</span> or <span class="fixed">["3 is too 
-small"]</span>? That sounds like it could work. If that were the case, we'd 
+class="fixed">["Accepted the number 5"]</span> or <code class="fixed">["3 is too 
+small"]</code>? That sounds like it could work. If that were the case, we'd 
 expect the resulting list to also come with a log of all the log values that 
 were produced along the way. So if the <code class="fixed">Bool</code> that the 
 predicate returned came with a context, we'd expect the final resulting list to have 
@@ -2587,8 +2587,8 @@ class="fixed">return</span> here to do this, but we could have written
 <code class="fixed">Just</code> just as well). In the last case, we do
 <code class="fixed">readMaybe numberString</code> and then we map <span 
 class="fixed">(:xs)</span> over it. So if the stack <code class="fixed">xs</code>
-is <code class="fixed">[1.0,2.0]</code> and <span class="fixed">readMaybe 
-numberString</span> results in a <code class="fixed">Just 3.0</code>, the result 
+is <code class="fixed">[1.0,2.0]</code> and <code class="fixed">readMaybe 
+numberString</code> results in a <code class="fixed">Just 3.0</code>, the result 
 is <code class="fixed">Just [3.0,1.0,2.0]</code>. If <code class="fixed">readMaybe numberString</code> results in a <span 
 class="fixed">Nothing</span> then the result is <code class="fixed">Nothing</code>. 
 Let's try out the folding function by itself:
@@ -3018,8 +3018,8 @@ for <code class="fixed">m &gt;&gt;= return</code> being equal to just
 <code class="fixed">f &lt;=&lt; (g &lt;=&lt; h)</code> should be the same as
 <code class="fixed">(f &lt;=&lt; g) &lt;=&lt; h</code>. This one holds as well, 
 because it holds for the list monad which forms the basis of the probability 
-monad and because multiplication is associative. <span class="fixed">1%2 * (1%3 
-* 1%5)</span> is equal to <code class="fixed">(1%2 * 1%3) * 1%5</code>.
+monad and because multiplication is associative. <code class="fixed">1%2 * (1%3 
+* 1%5)</code> is equal to <code class="fixed">(1%2 * 1%3) * 1%5</code>.
 </p>
 
 <p>
